@@ -10,7 +10,7 @@ These are dotfiles on my Macbook Pro.
 
 Use `hg` (mercurial) to clone, locally:
 
-	hg clone ssh://hg@bitbucket.org/astrohckr/dotfiles.meitner ~/.dotfiles
+	hg clone ssh://hg@bitbucket.org/astrohckr/dotfiles ~/.dotfiles
 
 ## Usage
 

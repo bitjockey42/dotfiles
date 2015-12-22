@@ -199,8 +199,8 @@ set $base0F #deaf8f
 
 # class		            border  bg      text    indicator
 client.focused_inactive $base02 $base02 $base03 $base01 
-client.focused          $base0D $base0D $base07 $base0A
-client.unfocused        $base00 $base00 $base03 $base01
+client.focused          $base0D $base0D $base07 $base0D
+client.unfocused        $base00 $base00 $base03 $base00
 client.urgent           $base02 $base08 $base07 $base08 
 
 # Start i3bar to display a workspace bar (plus the system information i3status

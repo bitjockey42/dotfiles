@@ -179,6 +179,9 @@ bindsym XF86AudioPlay exec mpc toggle
 for_window [class="^.*"] border pixel 1
 new_window 1pixel
 
+# Gaps
+gaps inner 20
+
 # Colors
 set $base00 #151515
 set $base01 #202020
@@ -210,16 +213,16 @@ bar {
 		background $base00 
 		separator $base03
 		statusline $base06 
-		focused_workspace $base02 $base02 $base07 
-		active_workspace $base02 $base02 $base07 
-		inactive_workspace $base00 $base00 $base02
+		focused_workspace $base00 $base0D $base07 
+		active_workspace $base04 $base02 $base07 
+		inactive_workspace $base00 $base01 $base02
 		urgent_workspace $base08 $base08 $base07 
 	}
 
 	# i3bar position
 	position top
 
-	status_command i3status
+	status_command i3status 
 
 	separator_symbol "|"
 

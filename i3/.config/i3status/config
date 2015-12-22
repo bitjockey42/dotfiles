@@ -9,9 +9,9 @@
 general {
         colors = true
         interval = 1
-		color_good = "#BBBBBB"
-		color_bad = "#E7DA2A" 
-		color_degraded = "#55858E"
+		color_good = "#b5bd68"
+		color_bad = "#cc6666" 
+		color_degraded = "#f0c674"
 }
 
 order += "volume master"
@@ -49,7 +49,7 @@ run_watch VPN {
 }
 
 tztime local {
-        format = " %Y-%m-%d %I:%M%p"
+        format = " %m/%d  %I:%M%p"
 }
 
 

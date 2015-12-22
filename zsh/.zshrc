@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="norm"
+ZSH_THEME="pure"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -83,20 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-## Mercurial prompt
-PROMPT='%{$fg[yellow]%}λ %m %{$fg[green]%}%c $(git_prompt_info) $(hg_prompt_info) %{$fg[yellow]%}→ %{$reset_color%}'
-
-# hg_active_bookmark="$(hg book|grep \*|awk '{print $2}')"
-
-ZSH_THEME_HG_PROMPT_PREFIX="%{$fg_bold[magenta]%}hg:(%{$fg[red]%}"
-ZSH_THEME_HG_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_HG_PROMPT_DIRTY="%{$fg[magenta]%}) %{$fg[yellow]%}✗%{$reset_color%}"
-ZSH_THEME_HG_PROMPT_CLEAN="%{$fg[magenta]%})" 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[magenta]%}git:(%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[magenta]%}) %{$fg[yellow]%}✗%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[magenta]%})"
 
 ## Paths
 [[ -f /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh

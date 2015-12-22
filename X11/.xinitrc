@@ -1,4 +1,4 @@
-cat ~/.colors/base16-tomorrow.dark.xresources ~/.Xresources|xrdb -merge
+cat ~/.colors/base16-chalk.dark.xresources ~/.Xresources|xrdb -merge
 
 xmodmap ~/.Xmodmap
 

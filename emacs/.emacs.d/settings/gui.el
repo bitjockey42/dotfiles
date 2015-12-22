@@ -23,8 +23,8 @@
     (add-hook 'after-make-frame-functions
         (lambda (frame)
             (select-frame frame)
-            (load-theme 'noctilux t)))
-    (load-theme 'noctilux t))
+            (load-theme 'spacemacs-dark t)))
+    (load-theme 'spacemacs-dark t))
 
 ;; Display Options
 (set-fringe-mode 5)

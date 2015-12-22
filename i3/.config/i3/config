@@ -100,14 +100,14 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # workspaces
-set $ws1  1
-set $ws2  2
-set $ws3  3
-set $ws4  4
-set $ws5  5
-set $ws6  6
+set $ws1 term
+set $ws2 code
+set $ws3 www 
+set $ws4 mail
+set $ws5 file 
+set $ws6 media
 
-# switch to workspace
+# switch to workspace bindsym $mod+1 workspace $ws1
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -213,9 +213,9 @@ bar {
 		background $base00 
 		separator $base03
 		statusline $base06 
-		focused_workspace $base00 $base0D $base07 
-		active_workspace $base04 $base02 $base07 
-		inactive_workspace $base00 $base01 $base02
+		focused_workspace $base00 $base00 $base0D
+		active_workspace $base00 $base00 $base07 
+		inactive_workspace $base00 $base00 $base02
 		urgent_workspace $base08 $base08 $base07 
 	}
 

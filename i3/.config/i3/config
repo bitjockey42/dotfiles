@@ -220,7 +220,7 @@ bar {
 	# i3bar position
 	position top
 
-	status_command i3status 
+	status_command conky -c ~/.config/conky/conky.conf 
 
 	separator_symbol "|"
 

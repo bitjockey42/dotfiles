@@ -219,9 +219,7 @@ bar {
 	strip_workspace_numbers yes
 	# i3bar position
 	position top
-
-	#status_command conky -c ~/.config/conky/conky.conf 
-
+	status_command ~/.config/conky/scripts/i3conky.sh 
 	tray_output primary
 	font pango:Lekton, Font Awesome 20 
 }

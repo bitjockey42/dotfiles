@@ -220,9 +220,7 @@ bar {
 	# i3bar position
 	position top
 
-	status_command conky -c ~/.config/conky/conky.conf 
-
-	separator_symbol "|"
+	#status_command conky -c ~/.config/conky/conky.conf 
 
 	tray_output primary
 	font pango:Lekton, Font Awesome 20 

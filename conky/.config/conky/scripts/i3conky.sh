@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+source $(dirname $0)/colors
 
 # Send the header so that i3bar knows we want to use JSON:
 echo '{"version":1}'

@@ -178,6 +178,7 @@ new_window 1pixel
 
 # Gaps
 gaps inner 15
+smart_gaps on
 
 # Colors
 set $base00 #151515

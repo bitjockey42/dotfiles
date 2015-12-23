@@ -1,6 +1,14 @@
 # i3wm
 
-My `i3` setup is nothing special, just tweaks to the color and general layout and such.
+Running `i3-gaps-git` (AUR).
 
-My launcher is `rofi`, which on Arch Linux is in the official repos.
+## Fonts
+
+- Essential PragmataPro (NONFREE, paid font)
+- Font Awesome for Icons
+
+## Utilities
+
+- statusline is `conky` (official).
+- launcher is `rofi` (official).
 

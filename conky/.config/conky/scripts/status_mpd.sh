@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-CMD=`mpc current`
+CMD=`mpc current --format "%title%"`
 LABEL=""
 
 echo "$LABEL $CMD" 

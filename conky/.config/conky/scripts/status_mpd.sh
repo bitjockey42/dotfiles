@@ -1,3 +1,5 @@
 #!/usr/bin/env sh
+CMD=`mpc current`
+LABEL=""
 
-echo "test"
+echo "$LABEL $CMD" 

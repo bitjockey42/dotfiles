@@ -2,6 +2,7 @@
 
 (depends-on "ag")
 (depends-on "auto-complete")
+(depends-on "base16-theme")
 (depends-on "coffee-mode")
 (depends-on "cython-mode")
 (depends-on "deft")

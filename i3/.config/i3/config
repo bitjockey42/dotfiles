@@ -100,12 +100,12 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # workspaces
-set $ws1 1:◾
-set $ws2 2:◾
-set $ws3 3:◾
-set $ws4 4:◾
-set $ws5 5:◾
-set $ws6 6:◾
+set $ws1 1:
+set $ws2 2:
+set $ws3 3:
+set $ws4 4:
+set $ws5 5:
+set $ws6 6:
 
 # switch to workspace bindsym $mod+1 workspace $ws1
 bindsym $mod+1 workspace $ws1
@@ -157,9 +157,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# Autostart 
-exec --no-startup-id redshift
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
@@ -213,7 +210,7 @@ bar {
 		background $base00 
 		separator $base03
 		statusline $base06 
-		focused_workspace $base00 $base00 $base0D
+		focused_workspace $base00 $base00 $base05
 		active_workspace $base00 $base00 $base07 
 		inactive_workspace $base00 $base00 $base02
 		urgent_workspace $base08 $base08 $base07 
@@ -230,3 +227,7 @@ bar {
 	tray_output primary
 	font pango:Lekton, Font Awesome 20 
 }
+
+# Autostart 
+exec --no-startup-id redshift
+exec --no-startup-id xsetroot -solid "$base02"

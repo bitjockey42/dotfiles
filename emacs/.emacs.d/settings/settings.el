@@ -11,6 +11,7 @@
 (load "languages/markdown.el")
 (load "languages/python.el")
 (load "languages/ruby.el")
+(load "languages/web.el")
 
 ;; Settings - Extensions
 (load "extensions/deft.el")

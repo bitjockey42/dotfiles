@@ -12,19 +12,19 @@ if [[ $STATUS != "Discharging" ]]; then
 	label=$STATUS
 elif [[ $BAT -lt 10 ]]; then
 	icon=""
-	label="$BAT %"
+	label="$BAT%"
 elif [[ $BAT -lt 40 ]]; then
 	icon=""
-	label="$BAT %"
+	label="$BAT%"
 elif [[ $BAT -lt 70 ]]; then
 	icon=""
-	label="$BAT %"
+	label="$BAT%"
 elif [[ $BAT -lt 90 ]]; then
 	icon=""
-	label="$BAT %"
+	label="$BAT%"
 else
 	icon=""
-	label="$BAT %"
+	label="$BAT%"
 fi
 
 echo "$icon $label"

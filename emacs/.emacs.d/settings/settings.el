@@ -8,6 +8,7 @@
 (load "languages/cpp.el")
 (load "languages/cython.el")
 (load "languages/haskell.el")
+(load "languages/javascript.el")
 (load "languages/markdown.el")
 (load "languages/python.el")
 (load "languages/ruby.el")

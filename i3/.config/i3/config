@@ -209,9 +209,9 @@ client.urgent           $base02 $base08 $base07 $base08
 bar {
 	colors {
 		background $base00 
-		separator $base03
+		separator $base02
 		statusline $base06 
-		focused_workspace $base00 $base00 $base05
+		focused_workspace $base00 $base00 $base06
 		active_workspace $base00 $base00 $base07 
 		inactive_workspace $base00 $base00 $base02
 		urgent_workspace $base08 $base08 $base07 
@@ -220,6 +220,7 @@ bar {
 	strip_workspace_numbers yes
 	# i3bar position
 	position top
+	separator_symbol "|"
 	status_command ~/.config/conky/scripts/i3conky.sh 
 	tray_output primary
 	font pango:Essential PragmataPro, Font Awesome 20 

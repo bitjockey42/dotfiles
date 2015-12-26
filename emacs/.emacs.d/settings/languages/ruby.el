@@ -22,6 +22,8 @@
 (add-to-list 'auto-mode-alist '("\\.ru$" . enh-ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . enh-ruby-mode))
 
+;;(setq ruby-indent-level 2)
+
 ;; Set rbenv
 (setenv "PATH"
         (concat (getenv "HOME") "/.rbenv/shims:"

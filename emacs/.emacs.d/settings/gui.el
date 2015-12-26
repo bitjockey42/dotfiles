@@ -10,6 +10,7 @@
 (setq-default truncate-lines nil)
 ;; Do not use tabs for indentation
 (setq-default indent-tabs-mode nil)
+(setq tab-width 2)
 
 ;; Set font
 (add-to-list 'default-frame-alist '(font . "Essential PragmataPro-9"))

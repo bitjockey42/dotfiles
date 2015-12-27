@@ -228,4 +228,5 @@ bar {
 
 # Autostart 
 exec --no-startup-id redshift
-exec --no-startup-id xsetroot -solid "$base03"
+# exec --no-startup-id xsetroot -solid "$base03"
+# exec --no-startup id feh --randomize --bg-fill ~/Pictures/Walls

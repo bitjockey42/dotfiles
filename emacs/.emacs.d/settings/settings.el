@@ -12,6 +12,7 @@
 (load "languages/markdown.el")
 (load "languages/python.el")
 (load "languages/ruby.el")
+(load "languages/scss.el")
 (load "languages/web.el")
 
 ;; Settings - Extensions

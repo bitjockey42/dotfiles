@@ -15,7 +15,6 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:Lekton 20
 
-
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -200,7 +199,7 @@ set $base0F #ab7967
 
 # class		            border  bg      text    indicator
 client.focused_inactive $base07 $base07 $base03 $base07 
-client.focused          $active $active $base0D $active
+client.focused          $base07 $base07 $base0D $base07
 client.unfocused        $base07 $base07 $base03 $base07
 client.urgent           $base02 $base08 $base07 $base08 
 
@@ -208,3 +207,4 @@ client.urgent           $base02 $base08 $base07 $base08
 exec --no-startup-id redshift
 exec --no-startup-id ~/.config/lemon/bar
 exec --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers
+

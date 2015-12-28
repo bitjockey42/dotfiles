@@ -150,7 +150,7 @@ directory to make multiple eshell windows easier."
 (global-set-key (kbd "M-t") 'fiplr-find-file) ;; Invoke the fiplr finder
 
 ;; Ignore these files
-(setq fiplr-ignored-globs '((directories (".git" ".hg" ".svn" ".bundle" "vendor" "_site" "tags" "tmp" ".cask" "node_modules"))
+(setq fiplr-ignored-globs '((directories (".git" ".hg" ".svn" ".bundle" "vendor" "_site" "tags" "tmp" ".cask" "node_modules" "public"))
                             (files ("*.jpg" "*.png" "*.zip" "*~"))))
 
 ;;---------------------------;;

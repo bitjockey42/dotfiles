@@ -54,7 +54,7 @@ plugins=(git mercurial docker-compose vi-mode)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/bin/core_perl"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -89,6 +89,8 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cask/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$PATH
+source ~/.zsh.d/ruby.zsh
 
 man() {
     env LESS_TERMCAP_mb=$'\E[01;31m' \

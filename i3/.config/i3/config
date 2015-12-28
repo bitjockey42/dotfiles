@@ -223,7 +223,7 @@ bar {
 	separator_symbol "|"
 	status_command ~/.config/conky/scripts/i3conky.sh 
 	tray_output primary
-	font pango:Essential PragmataPro, Font Awesome 20 
+	font pango:Lekton, Font Awesome 20 
 }
 
 # Autostart 

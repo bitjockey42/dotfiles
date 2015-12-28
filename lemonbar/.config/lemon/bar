@@ -31,10 +31,10 @@ battery_status() {
 			label="Charging"
 		fi
 	elif [[ $BAT -lt 10 ]]; then
-		icon=""
+		icon="%{F$base08}%{F-}"
 		label="$BAT%"
 	elif [[ $BAT -lt 40 ]]; then
-		icon=""
+		icon="%{F$base09}%{F-}"
 		label="$BAT%"
 	elif [[ $BAT -lt 70 ]]; then
 		icon=""

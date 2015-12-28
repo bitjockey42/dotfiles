@@ -47,12 +47,24 @@ battery_status() {
 		label="$BAT%"
 	fi
 
-	echo "$icon $label"
+	echo "$icon"
 }
 
 backlight_status() {
 	backlight_level=`xbacklight -get|xargs printf "%.0f"`
-	echo " $backlight_level%"
+	icon=""
+
+	if [[ $backlight_level -lt 30 ]]; then
+		echo "%{F$base03}$icon%{F-}"
+	elif [[ $backlight_level -lt 50 ]]; then
+		echo "%{F$base04}$icon%{F-}"
+	elif [[ $backlight_level -lt 70 ]]; then
+		echo "%{F$base05}$icon%{F-}"
+	elif [[ $backlight_level -lt 90 ]]; then
+		echo "%{F$base06}$icon%{F-}"
+	else
+		echo "%{F$base07}$icon%{F-}"
+	fi
 }
 
 mpd_status() {
@@ -77,7 +89,7 @@ volume_status() {
 		icon=""
 	fi
 
-	echo "$icon $(get_volume_level)%"
+	echo "$icon"
 }
 
 wifi_status() {
@@ -86,9 +98,9 @@ wifi_status() {
 	icon=""
 
 	if [[ -z "${essid// }" ]]; then
-		echo "%{F$base04}$icon%{F-}"
+		echo "%{F$base03}$icon%{F-}"
 	else
-		echo "%{F$base0C}$icon%{F-}"
+		echo "%{F$base06}$icon%{F-}"
 	fi
 }
 
@@ -100,6 +112,6 @@ while :; do
 	echo "%{B$BG1} $(ws) %{B-}%{B$BG2} $(window) %{B-} %{c}%{F$base07}$(current_time)%{F-} %{r}$(mpd_status) $(backlight_status) $(volume_status) $(wifi_status) $(battery_status) "
     sleep 1	
 		 
-done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT1" -f "$ICONFONT1" -B "$base00" -F "$base04" -p | \
+done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT1" -f "$ICONFONT1" -B "$base00" -F "$base06" -p | \
 	while read line; do eval "$line"; done &
 

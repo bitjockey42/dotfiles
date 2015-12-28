@@ -10,11 +10,15 @@ current=$(echo "`xbacklight -get|xargs printf "%.0f"`/$steps" | bc)
 bar=""
 
 bar() {
-	for i in `seq 1 $current`;
+	for i in `seq 1 $steps`;
 	do
-		bar="$bar|"
+		if [[ $i -lt $current ]]; then
+			bar="$bar|"
+		else
+			bar_bg="$bar_bg "
+		fi
 	done
-	echo $bar 
+	echo "[$bar$bar_bg]"
 }
 
 increase() {
@@ -32,9 +36,9 @@ decrease() {
 notify() {
 	ID=$(cat $LEVEL_FILE)
 	if [[ $ID -gt "0" ]]; then
-		dunstify -p -r $ID "$TEXT" >$LEVEL_FILE
+		dunstify -p -r $ID "LIGHT: $TEXT" >$LEVEL_FILE
 	else
-		dunstify -p "$TEXT" >$LEVEL_FILE
+		dunstify -p "LIGHT: $TEXT" >$LEVEL_FILE
 	fi
 }
 

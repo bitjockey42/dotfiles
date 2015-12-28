@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+cd $(dirname $0)
+source $(dirname $0)/config
+
+# Panel 
+PW=1880
+PH=40
+PX=20
+PY=15
+
+while :; do
+	echo "$(ws)"
+done | lemonbar -g ${PW}x${PH}+${PO}+${PO} -f "Lekton:size=10"
+

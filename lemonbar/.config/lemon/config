@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+# Functions
+
+ws(){
+	ws=$(i3-msg -t get_outputs | sed 's/.*"current_workspace":"\([^"]*\)".*/\1/')
+	echo "${ws}"
+}
+

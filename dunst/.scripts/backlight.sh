@@ -7,7 +7,6 @@ touch $LEVEL_FILE
 
 steps=10
 current=$(echo "`xbacklight -get|xargs printf "%.0f"`/$steps" | bc)
-bar=""
 
 bar() {
 	for i in `seq 1 $steps`;

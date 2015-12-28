@@ -1,33 +1,50 @@
 #!/usr/bin/env sh
 
-touch ~/.dunst_volume
+LEVEL_FILE=~/.dunst_volume
+TEXT=""
+touch $LEVEL_FILE
+
+steps=12
+current=$(amixer sget Master | tail -1 | cut -d' ' -f6 | sed 's/\(\[\|\]\)//g' | sed 's/%//')
+
+bar() {
+	for i in `seq 1 $steps`;
+	do
+		if [[ $i -lt $current ]]; then
+			bar="$bar|"
+		else
+			bar_bg="$bar_bg "
+		fi
+	done
+	echo "[$bar$bar_bg]"
+}
 
 increase_volume() {
 	amixer -q sset Master,0 10+ unmute
-	TEXT=$(amixer sget Master | tail -1 | cut -d' ' -f6 | sed 's/\(\[\|\]\)//g')
-	ID=$(cat ~/.dunst_volume)
+	echo $current
+	TEXT=`bar`
 	notify
 }
 
 decrease_volume() {
 	amixer -q sset Master,0 10- unmute
-	TEXT=$(amixer sget Master | tail -1 | cut -d' ' -f6 | sed 's/\(\[\|\]\)//g')
+	TEXT=`bar`
 	notify
 }
 
 mute_volume() {
 	amixer -q sset Master,0 toggle
-	TEXT=$(amixer sget Master | tail -1 | cut -d' ' -f8 | sed 's/\(\[\|\]\)//g')
+	TEXT="muted"
 	notify
 }
 
 notify() {
-	ID=$(cat ~/.dunst_volume)
+	ID=$(cat $LEVEL_FILE)
 	if [[ $ID -gt "0" ]]
 	then
-	dunstify -p -r $ID "Volume: $TEXT" >~/.dunst_volume
+	dunstify -p -r $ID "Volume: $TEXT" >$LEVEL_FILE
 	else
-	dunstify -p "Volume: $TEXT" >~/.dunst_volume
+	dunstify -p "Volume: $TEXT" >$LEVEL_FILE
 	fi
 }
 

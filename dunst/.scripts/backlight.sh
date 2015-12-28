@@ -35,9 +35,9 @@ decrease() {
 notify() {
 	ID=$(cat $LEVEL_FILE)
 	if [[ $ID -gt "0" ]]; then
-		dunstify -p -r $ID "LIGHT: $TEXT" >$LEVEL_FILE
+		dunstify -p -r $ID "LIGHT   $TEXT" >$LEVEL_FILE
 	else
-		dunstify -p "LIGHT: $TEXT" >$LEVEL_FILE
+		dunstify -p "LIGHT   $TEXT" >$LEVEL_FILE
 	fi
 }
 

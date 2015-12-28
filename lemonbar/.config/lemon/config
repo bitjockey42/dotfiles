@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
+# Fonts
+FONT1="Lekton:size=9"
+
+# Icon Fonts
+ICONFONT1="FontAwesome:size=9"
+
 # Functions
 
 ws(){

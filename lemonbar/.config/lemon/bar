@@ -4,12 +4,16 @@ cd $(dirname $0)
 source $(dirname $0)/config
 
 # Panel 
-PW=1880
+PW=2880
 PH=40
-PX=20
-PY=15
+PX=0
+PY=0
 
 while :; do
-	echo "$(ws)"
-done | lemonbar -g ${PW}x${PH}+${PO}+${PO} -f "Lekton:size=10"
+	
+	echo "  $(ws)"
+         sleep 0.5	
+		 
+ done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT1" -f "$ICONFONT1" -p | \
+	while read line; do eval "$line"; done &
 

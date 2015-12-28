@@ -158,8 +158,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.scripts/backlight.sh inc # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.scripts/backlight.sh dec # decrease screen brightness
 
 # Audio
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.scripts/dvol.sh inc 

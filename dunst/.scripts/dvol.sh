@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+touch ~/.dunst_volume
+
 increase_volume() {
 	amixer -q sset Master,0 10+ unmute
 	TEXT=$(amixer sget Master | tail -1 | cut -d' ' -f6 | sed 's/\(\[\|\]\)//g')

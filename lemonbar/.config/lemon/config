@@ -6,4 +6,5 @@ FONT1="Lekton:size=9"
 # Icon Fonts
 ICONFONT1="FontAwesome:size=9"
 
-
+# Colors
+COLOR1="#E66B11"

@@ -94,7 +94,7 @@ current_time() {
 }
 
 while :; do
-	echo "$(ws) $(window) %{c}$(current_time) %{r}$(mpd_status) $(backlight_status) $(volume_status) $(wifi_status) $(battery_status) "
+	echo "%{B$COLOR1} $(ws) %{B-} $(window) %{c}$(current_time) %{r}$(mpd_status) $(backlight_status) $(volume_status) $(wifi_status) $(battery_status) "
     sleep 1	
 		 
 done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT1" -f "$ICONFONT1" -p | \

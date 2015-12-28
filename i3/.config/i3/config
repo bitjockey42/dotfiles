@@ -200,7 +200,7 @@ set $base0F #ab7967
 
 # class		            border  bg      text    indicator
 client.focused_inactive $base07 $base07 $base03 $base07 
-client.focused          $base0D $base0D $base0D $base0D
+client.focused          $active $active $base0D $active
 client.unfocused        $base07 $base07 $base03 $base07
 client.urgent           $base02 $base08 $base07 $base08 
 

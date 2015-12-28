@@ -13,3 +13,8 @@ ws(){
 	echo "${ws}"
 }
 
+window(){
+	window_title=$(xdotool getwindowfocus getwindowname)
+	echo "${window_title}"
+}
+

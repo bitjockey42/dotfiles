@@ -123,7 +123,7 @@ zle -N zle-line-init
 zle-keymap-select () {
   if [[ $KEYMAP == vicmd ]]; then
     if [[ -z $TMUX ]]; then
-      printf "\033]12;Green\007"
+      printf "\033]12;Gray\007"
       printf "\033[2 q"
     else
       printf "\033Ptmux;\033\033]12;red\007\033\\"

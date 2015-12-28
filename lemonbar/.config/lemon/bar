@@ -82,7 +82,7 @@ volume_status() {
 	muted=`amixer get Master -M|grep -oE -m1 "\[on\]"`
 
 	if [[ "$muted" != "[on]" ]]; then
-		icon="%{F$base03}%{F-}"
+		icon="%{F$base04}%{F-}"
 	elif [[ `get_volume_level` -lt 30 ]]; then
 		icon=""
 	else
@@ -98,7 +98,7 @@ wifi_status() {
 	icon=""
 
 	if [[ -z "${essid// }" ]]; then
-		echo "%{F$base03}$icon%{F-}"
+		echo "%{F$base04}$icon%{F-}"
 	else
 		echo "%{F$base06}$icon%{F-}"
 	fi

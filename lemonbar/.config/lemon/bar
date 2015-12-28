@@ -71,7 +71,7 @@ mpd_status() {
 	CMD=`mpc current --format "%title%"`
 	icon=""
 
-	echo "$icon $CMD" 
+	echo "$CMD %{F$base0C}$icon%{F-}" 
 }
 
 get_volume_level() {
@@ -82,7 +82,7 @@ volume_status() {
 	muted=`amixer get Master -M|grep -oE -m1 "\[on\]"`
 
 	if [[ "$muted" != "[on]" ]]; then
-		icon=""
+		icon="%{F$base03}%{F-}"
 	elif [[ `get_volume_level` -lt 30 ]]; then
 		icon=""
 	else
@@ -109,7 +109,7 @@ current_time() {
 }
 
 while :; do
-	echo "%{B$BG1} $(ws) %{B-}%{B$BG2} $(window) %{B-} %{c}%{F$base07}$(current_time)%{F-} %{r}$(mpd_status) $(backlight_status) $(volume_status) $(wifi_status) $(battery_status) "
+	echo "%{B$BG2}  $(ws)  %{B-}%{B$BG1}   $(window)   %{B-} %{c}%{F$base07}$(current_time)%{F-} %{r}%{B$BG1}  $(backlight_status)  $(volume_status)  $(wifi_status)  $(battery_status)  %{B-}"
     sleep 1	
 		 
 done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT1" -f "$ICONFONT1" -B "$base00" -F "$base06" -p | \

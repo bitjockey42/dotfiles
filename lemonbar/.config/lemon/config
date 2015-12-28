@@ -13,12 +13,12 @@ FONT1="Envy Code R:size=8"
 ICONFONT1="FontAwesome:size=9"
 
 # Panel Colors
-BG="#151515"
+BG="#010101"
 FG="#F0F0F0"
 
 # Background Colors
-BG1="#E66B11"
-BG2="#6E797E"
+BG1="#36536E"
+BG2="#D95F69"
 
 # Foreground Colors
 FG1="#FFFFFF"

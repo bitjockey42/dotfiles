@@ -24,8 +24,8 @@
     (add-hook 'after-make-frame-functions
         (lambda (frame)
             (select-frame frame)
-            (load-theme 'spacemacs-dark t)))
-    (load-theme 'spacemacs-dark t))
+            (load-theme 'base16-ocean-light t)))
+    (load-theme 'base16-ocean-light t))
 
 ;; Display Options
 (set-fringe-mode 5)

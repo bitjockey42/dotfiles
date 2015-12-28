@@ -1,27 +1,50 @@
 #!/usr/bin/env sh
-if [ "$1" == "low" ]
-then
- amixer -q set Master 3%- unmute
- ICON="/usr/share/icons/Adwaita/16x16/status/audio-volume-low.png"
- TEXT=$(amixer sget Master | tail -1 | cut -d' ' -f6 | sed 's/\(\[\|\]\)//g')
-elif [ "$1" == "high" ]
-then
- amixer -q set Master 3%+ unmute
- ICON="/usr/share/icons/Adwaita/16x16/status/audio-volume-high.png"
- TEXT=$(amixer sget Master | tail -1 | cut -d' ' -f6 | sed 's/\(\[\|\]\)//g')
-elif [ "$1" == "mute" ]
-then
- amixer -q set Master toggle
- ICON="/usr/share/icons/Adwaita/16x16/status/audio-volume-muted.png"
- TEXT=$(amixer sget Master | tail -1 | cut -d' ' -f8 | sed 's/\(\[\|\]\)//g')
-else
- echo "Usage volume [low | high | mute]\n"
-fi
 
-ID=$(cat ~/.dunst_volume)
-if [ $ID -gt "0" ]
-then
- dunstify -p -r $ID -i $ICON "Volume: $TEXT" >~/.dunst_volume
-else
- dunstify -p -i $ICON "Volume: $TEXT" >~/.dunst_volume
-fi
+increase_volume() {
+	amixer -q sset Master,0 10+ unmute
+	TEXT=$(amixer sget Master | tail -1 | cut -d' ' -f6 | sed 's/\(\[\|\]\)//g')
+	ID=$(cat ~/.dunst_volume)
+	notify
+}
+
+decrease_volume() {
+	amixer -q sset Master,0 10- unmute
+	TEXT=$(amixer sget Master | tail -1 | cut -d' ' -f6 | sed 's/\(\[\|\]\)//g')
+	notify
+}
+
+mute_volume() {
+	amixer -q sset Master,0 toggle
+	TEXT=$(amixer sget Master | tail -1 | cut -d' ' -f8 | sed 's/\(\[\|\]\)//g')
+	notify
+}
+
+notify() {
+	ID=$(cat ~/.dunst_volume)
+	if [[ $ID -gt "0" ]]
+	then
+	dunstify -p -r $ID "Volume: $TEXT" >~/.dunst_volume
+	else
+	dunstify -p "Volume: $TEXT" >~/.dunst_volume
+	fi
+}
+
+case "$1" in
+	inc)
+		increase_volume
+		;;
+	dec)
+		decrease_volume
+		;;
+	mute)
+		mute_volume
+		;;
+	*)
+		echo $"Usage: $0 {inc|dec|mute}"
+		exit 1
+esac
+
+
+
+
+

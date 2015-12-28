@@ -10,9 +10,8 @@ PX=0
 PY=0
 
 while :; do
-	
-	echo "  $(ws) $(window)"
-         sleep 0.5	
+	echo "$(ws) %{c}$(window) %{r}$(mpd_status) $(backlight_status) $(volume_status) $(wifi_status) $(battery_status) "
+    sleep 1	
 		 
  done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT1" -f "$ICONFONT1" -p | \
 	while read line; do eval "$line"; done &

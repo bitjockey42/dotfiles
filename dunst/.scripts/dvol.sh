@@ -10,12 +10,12 @@ bar() {
 	for i in `seq 1 $steps`;
 	do
 		if [[ $i -lt $current ]]; then
-			bar="$bar|"
+			bar="$bar▪"
 		else
-			bar_bg="$bar_bg "
+			bar_bg="$bar_bg▫"
 		fi
 	done
-	echo "[$bar$bar_bg]"
+	echo "$bar$bar_bg"
 }
 
 increase_volume() {

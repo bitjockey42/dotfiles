@@ -23,8 +23,13 @@ battery_status() {
 	label=""
 
 	if [[ $STATUS != "Discharging" ]]; then
-		icon=""
-		label=$STATUS
+		if [[ $STATUS == "Full" ]]; then
+			icon=""
+			label="Full"
+		elif [[ $STATUS == "Charging" ]]; then
+			icon=""
+			label="Charging"
+		fi
 	elif [[ $BAT -lt 10 ]]; then
 		icon=""
 		label="$BAT%"

@@ -12,12 +12,12 @@ bar() {
 	for i in `seq 1 $steps`;
 	do
 		if [[ $i -lt $current ]]; then
-			bar="$bar|"
+			bar="$bar▪"
 		else
-			bar_bg="$bar_bg "
+			bar_bg="$bar_bg▫"
 		fi
 	done
-	echo "[$bar$bar_bg]"
+	echo "$bar$bar_bg"
 }
 
 increase() {
@@ -35,9 +35,9 @@ decrease() {
 notify() {
 	ID=$(cat $LEVEL_FILE)
 	if [[ $ID -gt "0" ]]; then
-		dunstify -p -r $ID "LIGHT   $TEXT" >$LEVEL_FILE
+		dunstify -p -r $ID "◑    $TEXT" >$LEVEL_FILE
 	else
-		dunstify -p "LIGHT   $TEXT" >$LEVEL_FILE
+		dunstify -p "◐    $TEXT" >$LEVEL_FILE
 	fi
 }
 

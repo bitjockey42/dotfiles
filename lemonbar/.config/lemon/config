@@ -1,10 +1,24 @@
 #!/usr/bin/env sh
 
+# Panel 
+PW=2880
+PH=40
+PX=0
+PY=0
+
 # Fonts
 FONT1="Lekton:size=9"
 
 # Icon Fonts
 ICONFONT1="FontAwesome:size=9"
 
-# Colors
-COLOR1="#E66B11"
+# Panel Colors
+BG="#151515"
+FG="#F0F0F0"
+
+# Background Colors
+BG1="#E66B11"
+BG2="#6E797E"
+
+# Foreground Colors
+FG1="#FFFFFF"

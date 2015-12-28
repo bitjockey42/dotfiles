@@ -3,12 +3,6 @@
 cd $(dirname $0)
 source $(dirname $0)/config
 
-# Panel 
-PW=2880
-PH=40
-PX=0
-PY=0
-
 # Functions
 ws() {
 	ws=$(i3-msg -t get_outputs | sed 's/.*"current_workspace":"\([^"]*\)".*/\1/')
@@ -94,9 +88,9 @@ current_time() {
 }
 
 while :; do
-	echo "%{B$COLOR1} $(ws) %{B-} $(window) %{c}$(current_time) %{r}$(mpd_status) $(backlight_status) $(volume_status) $(wifi_status) $(battery_status) "
+	echo "%{B$BG1} $(ws) %{B-}%{B$BG2} $(window) %{B-} %{c}%{F$FG1}$(current_time)%{F-} %{r}$(mpd_status) $(backlight_status) $(volume_status) $(wifi_status) $(battery_status) "
     sleep 1	
 		 
-done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT1" -f "$ICONFONT1" -p | \
+done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT1" -f "$ICONFONT1" -B "$BG" -F "$FG" -p | \
 	while read line; do eval "$line"; done &
 

@@ -1,6 +1,6 @@
 set gui=nonavigation
 set hintchars=asdfghklqwertyuiop
-colorscheme indigo
+colorscheme indigo 
 
 " scrolling
 nnoremap h 5h

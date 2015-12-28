@@ -17,7 +17,7 @@ hi StatusLine     color:  CornflowerBlue; background: #000; font-weight: normal;
 " hi StatusLineSecure   color:  black; background: #a0a0ff; font-weight: normal; font-size: 12pt;
 
 hi Normal     color:  LightYellow;  background: Black; font-size: 12pt; opacity: 0.7;
-hi CmdLine    color:  LightYellow;  background: Black; font-size: 14pt;
+hi CmdLine    color:  LightYellow;  background: Black; font-size: 12pt; font-family: Essential PragmataPro;
 hi InfoMsg    color:  LightYellow;  background: Black; font-size: 12pt;
 hi ModeMsg    color:  LightYellow;  background: Black; font-size: 12pt;
 hi MoreMsg    color:  LimeGreen; background: Black;

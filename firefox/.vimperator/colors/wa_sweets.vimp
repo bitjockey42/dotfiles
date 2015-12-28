@@ -20,10 +20,10 @@
 " highlight settings {{{
 hi Bell					display: none; border: 0 none; background-color: black;
 hi Boolean				color: red;
-hi CmdLine				font-family: monospace; padding: 1px;
-hi CmdOutput				font-size: 15px; white-space: pre;
+hi CmdLine				font-family: "Essential PragmatPro"; padding: 1px;
+hi CmdOutput				font-size: 12px; white-space: pre;
 hi CompDesc				color: #dcd3b2; width: 50%; /* SUNA_IRO */
-hi CompGroup				font-size: 14px;
+hi CompGroup				font-size: 12px;
 hi CompGroup:not(:first-of-type)	margin-top: .5em;
 hi CompIcon				width: 16px; min-width: 16px; display: inline-block; margin-right: .5ex;
 hi CompIcon>img				max-width: 16px; max-height: 16px; vertical-align: middle;

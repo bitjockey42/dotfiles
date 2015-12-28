@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 LEVEL_FILE=~/.dunst_backlight
 TEXT=""
@@ -6,7 +6,6 @@ TEXT=""
 touch $LEVEL_FILE
 
 steps=10
-current=$(echo "`xbacklight -get|xargs printf "%.0f"`/$steps" | bc)
 
 bar() {
 	for i in `seq 1 $steps`;
@@ -22,12 +21,16 @@ bar() {
 
 increase() {
 	xbacklight -inc 10
+	level=`xbacklight -get|xargs printf "%.0f"`
+	current=$(echo "$level/$steps" | bc)
 	TEXT=`bar`
 	notify
 }
 
 decrease() {
 	xbacklight -dec 10 
+	level=`xbacklight -get|xargs printf "%.0f"`
+	current=$(echo "$level/$steps" | bc)
 	TEXT=`bar`
 	notify
 }
@@ -35,9 +38,9 @@ decrease() {
 notify() {
 	ID=$(cat $LEVEL_FILE)
 	if [[ $ID -gt "0" ]]; then
-		dunstify -p -r $ID "◑    $TEXT" >$LEVEL_FILE
+		dunstify -p -r $ID "   ◑     $TEXT" >$LEVEL_FILE
 	else
-		dunstify -p "◐    $TEXT" >$LEVEL_FILE
+		dunstify -p "   ◐      $TEXT" >$LEVEL_FILE
 	fi
 }
 

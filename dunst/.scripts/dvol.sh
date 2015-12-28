@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 LEVEL_FILE=~/.dunst_volume
 TEXT=""

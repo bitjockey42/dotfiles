@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Dotfiles by 0x414A</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Dotfiles</h1>
+        <h2>github mirror for my dotfiles</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/0x414A/dotfiles/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/0x414A/dotfiles/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/0x414A/dotfiles" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="dotfiles" class="anchor" href="#dotfiles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>dotfiles</h1>
+
+<p>I use <a href="http://www.gnu.org/software/stow/manual/stow.html"><code>stow</code></a> to manage these dotfiles, which is a GNU tool that manages symlinks.</p>
+
+<h2>
+<a id="preview" class="anchor" href="#preview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preview</h2>
+
+<p><img src="http://i.imgur.com/uo7e7LS.jpg" alt="Bespoke"></p>
+
+<h2>
+<a id="information" class="anchor" href="#information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Information</h2>
+
+<p>These are dotfiles on my Macbook Pro.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Use <code>hg</code> (mercurial) to clone, locally:</p>
+
+<pre><code>hg clone ssh://hg@bitbucket.org/astrohckr/dotfiles ~/.dotfiles
+</code></pre>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Go to the <code>~/.dotfiles</code> directory you cloned above:</p>
+
+<pre><code>cd ~/.dotfiles
+</code></pre>
+
+<p>Then use <code>stow</code> to set up the links.</p>
+
+<h3>
+<a id="automated-setup" class="anchor" href="#automated-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Automated Setup</h3>
+
+<p>You just need to run <code>setup.sh</code> to install all the symlinks:</p>
+
+<pre><code>./setup.sh install
+</code></pre>
+
+<p>If you want to undo that:</p>
+
+<pre><code>./setup.sh uninstall
+</code></pre>
+
+<h3>
+<a id="manual-setup" class="anchor" href="#manual-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Manual Setup</h3>
+
+<p>You will want to symlink the <code>.stow-global-ignore</code> to <code>$HOME/.stow-global-ignore</code> first so that the <code>README.md</code> files here are ignored in the symlinking process:</p>
+
+<pre><code>stow stow
+</code></pre>
+
+<p>e.g. Setup the symlinks for the emacs configuration.</p>
+
+<pre><code>stow emacs
+</code></pre>
+      </section>
+    </div>
+
+    
+  </body>
+</html>

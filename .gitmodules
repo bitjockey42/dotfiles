@@ -1,0 +1,3 @@
+[submodule "spacemacs-common/.emacs.d/private/jekyll"]
+	path = spacemacs-common/.emacs.d/private/jekyll
+	url = git@github.com:0x414A/spacemacs-jekyll.git

@@ -1,0 +1,23 @@
+Xft.dpi: 220 
+Xft.autohint: 0
+Xft.antialias: true
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
+URxvt.transparent: true
+URxvt.shading:20
+
+!------------------------------------------------
+URxvt.font:  xft:EssentialPragmataPro:size=9
+URxvt*saveLines: 300000
+URxvt.scrollBar: false
+!URxvt*scrollstyle: plain
+URxvt*cursorBlink: true
+!URxvt*cursorUnderline: true
+URxvt.perl-ext-common:default,clipboard
+URxvt.iso14755: False
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.clipboard.copycmd: xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard

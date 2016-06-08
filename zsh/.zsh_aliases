@@ -1,0 +1,4 @@
+alias ytbuild='python setup.py build_ext -i'
+
+alias calendar='vdirsyncer && khal'
+

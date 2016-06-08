@@ -1,0 +1,11 @@
+syntax: glob
+.git
+.vimperator/info
+
+.cask
+eshell
+ido*
+auto-save-list
+*.dat
+session.*
+.DS_Store

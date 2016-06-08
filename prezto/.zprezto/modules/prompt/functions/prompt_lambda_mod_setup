@@ -1,0 +1,94 @@
+#
+# Lambda Mod
+# A simple theme inspired by lambda from oh-my-zsh and lambda_mod from prezto
+#
+# Authors:
+#   AJ (0x414A) <aj@hckr.eml.cc>
+#   Halfo
+#   Nicolas A. Tonne <nixo@gmx.com>
+#
+# Lambda_Mod Authors:
+#   Brian Tse <briankftse@gmail.com>
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+# Screenshots:
+#   http://i.imgur.com/V7fzEUg.png
+#
+
+pmodload 'helper'
+
+
+function check_git_prompt_info() {
+    if git rev-parse --git-dir > /dev/null 2>&1; then
+        if [[ -z ${vcs_info_msg_0_} ]]; then
+            echo "%{$fg[blue]%}detached-head%{$reset_color%}) ${vcs_info_msg_0_}
+%{$fg[yellow]%}→ "
+        else
+            echo "${vcs_info_msg_0_}
+%{$fg_bold[cyan]%}→ "
+        fi
+    else
+        echo "%{$fg_bold[cyan]%}→ "
+    fi
+}
+
+function get_right_prompt() {
+    if git rev-parse --git-dir > /dev/null 2>&1; then
+        echo -n "$(git_prompt_short_sha)%{$reset_color%}"
+    else
+        echo -n "%{$reset_color%}"
+    fi
+}
+
+function +vi-git_status {
+  # Check for untracked files or updated submodules since vcs_info does not.
+  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+    hook_com[unstaged]='%F{red}'
+  fi
+}
+
+function prompt_lambda_mod_precmd {
+  vcs_info
+}
+
+function prompt_lambda_mod_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Load required functions.
+  autoload -Uz colors && colors
+  autoload -Uz add-zsh-hook
+  autoload -Uz vcs_info
+
+  # Add hook for calling vcs_info before each command.
+  add-zsh-hook precmd prompt_lambda_mod_precmd
+
+  # Set vcs_info parameters.
+  zstyle ':vcs_info:*' enable git
+  zstyle ':vcs_info:*' check-for-changes true
+  zstyle ':vcs_info:*' stagedstr '*'
+  zstyle ':vcs_info:*' unstagedstr '%F{yellow}'
+  zstyle ':vcs_info:*' formats 'at %F{blue} %u%b%c%f'
+  zstyle ':vcs_info:*' actionformats " %b%c%u|%F{cyan}%a%f"
+  zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b|%F{cyan}%r%f'
+  zstyle ':vcs_info:git*+set-message:*' hooks git_status
+
+  # Define prompts.
+  
+  LAMBDA="%(?,%{$fg_bold[green]%}λ,%{$fg_bold[red]%}λ)"
+  if [[ "$USER" == "root" ]]; then USERCOLOR="red"; else USERCOLOR="yellow"; fi
+
+#  PROMPT='$fg_bold[green]%(?::%F{red})λ%f %F{red}%n%f f{yellow}[${_prompt_lambda_mod_pwd}]%f${vcs_info_msg_0_} '
+  PROMPT='
+${LAMBDA}\
+ %{$fg_bold[$USERCOLOR]%}%n\
+ %{$fg_no_bold[magenta]%}[%3~]\
+ $(check_git_prompt_info)\
+%{$reset_color%}'
+
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_lambda_mod_setup "$@"
+

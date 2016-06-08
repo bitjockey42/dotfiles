@@ -1,0 +1,4 @@
+" customize leader key
+let g:spf13 leader=','
+let g:airline_powerline_fonts=1
+

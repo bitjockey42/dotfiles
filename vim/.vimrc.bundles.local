@@ -1,0 +1,1 @@
+Bundle 'mxw/vim-jsx'

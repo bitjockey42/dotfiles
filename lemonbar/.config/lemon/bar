@@ -1,0 +1,133 @@
+#!/usr/bin/env zsh
+
+cd $(dirname $0)
+source $(dirname $0)/config
+
+# Functions
+ws() {
+	ws=$(i3-msg -t get_outputs | sed 's/.*"current_workspace":"\([^"]*\)".*/\1/')
+	echo "${ws}"
+}
+
+window() {
+	window_title=$(xdotool getwindowfocus getwindowname)
+	echo "${window_title}"
+}
+
+battery_status() {
+	BAT=`acpi -b | awk '{gsub(/%,/,""); print $4}' | sed 's/%//g'`
+	STATUS=`acpi -b | awk '{gsub(/,/,""); print $3}'`
+
+	# Set Icon
+	icon=""
+	level=""
+
+	if [[ $STATUS != "Discharging" ]]; then
+		if [[ $STATUS == "Full" ]]; then
+			icon=""
+			level="Full"
+		elif [[ $STATUS == "Charging" ]]; then
+			icon=""
+			level="Charging"
+		fi
+	elif [[ $BAT -lt 10 ]]; then
+		icon="%{F#$base08}%{F-}"
+		level="$BAT%"
+	elif [[ $BAT -lt 40 ]]; then
+		icon="%{F#$base09}%{F-}"
+		level="$BAT%"
+	elif [[ $BAT -lt 70 ]]; then
+		icon=""
+		level="$BAT%"
+	elif [[ $BAT -lt 90 ]]; then
+		icon=""
+		level="$BAT%"
+	else
+		icon=""
+		level="$BAT%"
+	fi
+
+	echo "$icon $level"
+}
+
+backlight_status() {
+	level=`xbacklight -get|xargs printf "%.0f"`
+	icon=""
+
+	echo "$icon $level%"
+}
+
+mpd_status() {
+	CMD=`mpc current --format "%title%"`
+	icon=""
+
+	echo "$CMD %{F#$base0C}$icon%{F-}" 
+}
+
+get_volume_level() {
+	amixer get Master -M | grep -oE -m1 "[[:digit:]]*%" | tr -dc '0-9'
+}
+
+volume_status() {
+	muted=`amixer get Master -M|grep -oE -m1 "\[on\]"`
+	level=`get_volume_level`
+
+	
+	if [[ "$muted" != "[on]" ]]; then
+		icon="%{F#$base04}%{F-}"
+	elif [[ `get_volume_level` -lt 30 ]]; then
+		icon=""
+	else
+		icon=""
+	fi
+
+	echo "$icon $level%"
+}
+
+wifi_status() {
+	INTERFACE="wlp4s0b1"
+	
+	level=$(echo $PERC|bc)
+	essid=`iwconfig $INTERFACE|grep 'ESSID'|awk '{gsub(/[:/"]/," "); print $5}'`
+	icon=""
+
+	if [[ -z "${essid// }" ]]; then
+		echo "%{F#$base04}$icon%{F-} N/A"
+	else
+		echo "%{F#$base06}$icon%{F-} $essid"
+	fi
+}
+
+current_date() {
+	echo "$(date '+%d %b')"
+}
+
+current_time() {
+	echo "$(date '+%I:%M %p')"
+}
+
+# Positions
+
+sep() {
+	echo "   "
+}
+
+left() {
+	echo "%{B$BG3}$(sep)$(ws)$(sep)%{B-}%{B$BG2}$(sep)$(window)$(sep)%{B-}"
+}
+
+center() {
+	echo "%{c}%{F$FG7}$(current_date)%{F-}$(sep)%{F$FG7}$(current_time)%{F-}"
+}
+
+right() {
+	echo "%{r}%{B$BG2}$(sep)$(backlight_status)$(sep)$(volume_status)$(sep)$(wifi_status) $(sep)$(battery_status)$(sep)%{B-}"
+}
+
+while :; do
+	echo "$(left) $(center) $(right)"
+    sleep 1	
+		 
+done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT1" -f "$ICONFONT1" -B "$BG" -F "$FG" -p | \
+	while read line; do eval "$line"; done &
+

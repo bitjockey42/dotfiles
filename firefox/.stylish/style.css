@@ -1,0 +1,137 @@
+/*
+ * Remove icons/favicons from tabs
+ * https://userstyles.org/styles/19722/firefox-3-remove-icons-favicons-from-tabs
+ */
+@-moz-document url-prefix('chrome://')
+{
+	.tab-icon-image
+	{
+		display:none !important;
+	}
+}
+
+
+/*
+ * Hide the throbber from the tab
+ * https://userstyles.org/styles/38445/firefox-4-hide-tab-throbber
+ */
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+.tab-throbber  {
+    list-style-image: none !important;
+}
+
+/*
+ * Have minimalist, flat tabs
+ * https://userstyles.org/styles/106924/firefox-australis-flat-tabs-squared
+ */
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+#TabsToolbar .arrowscrollbox-scrollbox {
+    padding: 0 !important;
+} 
+
+#TabsToolbar .tab-background {
+    margin: 0 !important;
+    background: transparent !important;
+} 
+
+#TabsToolbar .tab-background-start,
+#TabsToolbar .tab-background-end {
+    display: none !important;
+}  
+ 
+#TabsToolbar .tab-background-middle {
+    margin: -4px -2px !important;
+    background: transparent !important;
+}
+
+#TabsToolbar .tabbrowser-tab:after,
+#TabsToolbar .tabbrowser-tab:before {
+    display: none !important;
+}
+
+#TabsToolbar .tabs-newtab-button {
+    border-width: 1px 1px 0 1px !important;
+    margin: 0 !important;
+    width: auto !important;
+    padding: 0 5px !important;
+} 
+
+#TabsToolbar {
+ height: 28px !important;
+ padding-top: 1px !important;
+ padding-left: 1px !important;
+ background-image: none !important;
+}
+
+.tabbrowser-tab {
+ min-height: 23px !important;
+ margin-top: 2px !important;
+ margin-right: 1px !important;
+ padding: 0 2px 2px 3px !important;
+ background-image: none !important;
+ -moz-appearance: tab !important;
+ color: ButtonText !important;
+}
+.tabbrowser-tab[pinned] + .tabbrowser-tab:not([pinned]),
+.tabbrowser-tab:not([pinned]):first-child {
+ margin-left: 0 !important;
+}
+.tabbrowser-tab[pinned] {
+ padding: 0 1px !important;
+}
+.tabbrowser-tab .tab-icon-image {
+ margin-top: 0 !important;
+}
+.tabbrowser-tab[pinned] .tab-icon-image {
+ margin-top: -1px !important;
+}
+.tabbrowser-tabs[positionpinnedtabs="true"] .tabbrowser-tab[pinned] .tab-icon-image {
+ margin-top: 3px !important;
+}
+.tabbrowser-tab .tab-text {
+ margin-top: 0 !important;
+}
+.tabbrowser-tab .tab-close-button {
+ margin-bottom: -1px !important;
+}
+
+.tabbrowser-tab[selected=true] {
+ margin-top: 0 !important;
+ min-height: 24px !important;
+ padding: 0 3px 4px 5px !important;
+}
+.tabbrowser-tab[selected=true][pinned] {
+ min-height: 22px !important;
+ padding-right: 3px !important;
+ padding-left: 3px !important;
+}
+.tabbrowser-tab[selected=true] .tab-icon-image {
+ margin-top: 1px !important;
+}
+.tabbrowser-tab[selected=true][pinned] .tab-icon-image {
+ margin-top: 1px !important;
+}
+.tabbrowser-tabs[positionpinnedtabs="true"] .tabbrowser-tab[selected=true][pinned] .tab-icon-image {
+ margin-top: 4px !important;
+}
+.tabbrowser-tab[selected=true] .tab-text {
+ margin-top: 1px !important;
+}
+.tabbrowser-tab[selected=true] .tab-close-button {
+ margin-bottom: -2px !important;
+}
+
+.tabs-newtab-button {
+ margin-top: 2px !important;
+ padding-bottom: 3px !important;
+ background-image: none !important;
+ -moz-appearance: tab !important;
+}
+
+#appmenu-toolbar-button > .toolbarbutton-text,
+#appmenu-toolbar-button > .toolbarbutton-menu-dropmarker {
+  display: none !important;
+}
+ 

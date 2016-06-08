@@ -1,0 +1,41 @@
+colorscheme transparent
+set guioptions-=m
+set guioptions-=r
+set guioptions-=L
+
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
+
+hi Normal ctermbg=none
+highlight NonText ctermbg=none
+let g:jellybeans_background_color_256='NONE'
+
+" http://vim.wikia.com/wiki/Configuring_the_cursor
+" Tmux details: http://reza.jelveh.me/2011/09/18/zsh-tmux-vi-mode-cursor
+if &term =~ "xterm\\|rxvt"
+  " Insert
+  let &t_SI  = "\<Esc>]12;gray\x7"
+  let &t_SI .= "\<Esc>[3 q"
+  " Normal
+  let &t_EI  = "\<Esc>]12;grey\x7"
+  let &t_EI .= "\<Esc>[2 q"
+  autocmd VimLeave * silent !echo -ne "\033]112\007"
+elseif &term =~ "screen-256color"
+  " Insert
+  let &t_SI  = "\<Esc>Ptmux;\<Esc>\<Esc>]12;gray\x7\<Esc>\\"
+  let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[3 q\<Esc>\\"
+  " Normal
+  let &t_EI  = "\<Esc>Ptmux;\<Esc>\<Esc>]12;gray\x7\<Esc>\\"
+  let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
+  autocmd VimLeave * silent !printf "\033Ptmux;\033\033]12;grey\007\033\\"
+endif
